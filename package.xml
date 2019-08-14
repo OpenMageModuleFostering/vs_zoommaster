@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>VS_Zoommaster</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>A plugin to enlarge images on mouseover or mousedown.</summary>
+    <description>A plugin to enlarge images on mouseover or mousedown.</description>
+    <notes>A plugin to enlarge images on mouseover or mousedown.</notes>
+    <authors><author><name>virendra kumar sharma</name><user>virendra</user><email>magentoking@gmail.com</email></author></authors>
+    <date>2013-01-03</date>
+    <time>12:24:40</time>
+    <contents><target name="magecommunity"><dir><dir name="VS"><dir><dir name="Zoommaster"><dir name="Block"><file name="About.php" hash="e276c572c11700f83eb9c798f3bd543f"/><file name="zoommaster.php" hash="d65795f8434747af9fde2492362412cc"/></dir><dir name="Helper"><file name="Data.php" hash="c56f7fbe9ef56227387e2b4483074227"/></dir><dir name="Model"><file name="Iconpos.php" hash="0c9db769bc7dbff8cd0b43bf9f050b4e"/><file name="Trigger.php" hash="32bdc2b81dfc0f1af4b1ac52688add40"/></dir><dir name="etc"><file name="config.xml" hash="7f4a8da22b9c0e53dd5626bc1df5680b"/><file name="system.xml" hash="cc144812c09efa2de602a1af61867121"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir><dir name="modules"><file name="VS_Zoommaster.xml" hash="c37bbbe0a5bd6580650d00d7e01ea62c"/></dir></dir></target><target name="magedesign"><dir><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="zoommaster.xml" hash="6e5f46961362c8eb76b364093981d1b5"/></dir><dir name="template"><dir name="zoommaster"><file name="media.phtml" hash="71703503d8da47f1909e58ec08b0112d"/></dir></dir></dir></dir></dir></dir></target><target name="mage"><dir><dir name="js"><dir name="VS"><dir name="zoommaster"><file name="icon.png" hash="6df36b181f9fd7430318c30e482424b8"/><file name="jquery-1.3.2.min.js" hash="25e59325cb47d2ab5ea650d47f431a9c"/><file name="jquery-1.7.2.min.js" hash="acc0adc6c188845a409bf158d2de4451"/><file name="jquery.zoom.js" hash="a659da28ef85223e0f6115f570e080cd"/><file name="opc-ajax-loader.gif" hash="e805ea7eca1f34c75ba0f93780d32d38"/><file name="spinningred.gif" hash="46893b8266d278b9a81d65cdd1d8f8bf"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

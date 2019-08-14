@@ -1,0 +1,162 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product media data template
+ *
+ * @see Mage_Catalog_Block_Product_View_Media
+ */
+?>
+
+<?php
+    $_product = $this->getProduct();
+    $_helper = $this->helper('catalog/output');
+?>
+
+<?php $icon = Mage::getStoreConfig('zoommaster/zoomrange/iconpos');?>
+<?php $trigger = Mage::getStoreConfig('zoommaster/general/trigger');?>
+<?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
+
+<p class="product-image"><span class="zoom" id="ex1" >
+    <?php 
+        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image').'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" width="270" onmouseover="largeImg('."'".$trigger."'".')" height="280" id="image1" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+		 
+    ?>
+	</span>
+</p>
+
+<p class="zoom-notice" id="track_hint"><?php //echo $this->__('Mouse over the image for zoom') ?></p>
+
+
+<?php else: ?>
+<p class="product-image">
+<span class="zoom" id="ex1">
+
+<?php if($icon=="yes"){?>
+<div class="zoomIcon"></div>
+<?php } ?>
+    <?php 
+        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image').'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" width="290" height="270" onmouseover="largeImg('."'".$trigger."'".')" id="image1"/>';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?></span>
+</p>
+
+<?php endif; ?>
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<div class="more-views">
+    <h2><?php echo $this->__('More Views') ?></h2>
+    <ul>
+    <?php foreach ($this->getGalleryImages() as $_image): ?>
+	
+        <li>
+            <a onclick="imageswitcher('<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile());?>','<?php echo $trigger;?>');" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(56); ?>" width="56" height="56" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" /></a>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+
+	<?php endif; ?>
+
+</style>
+<script type="text/javascript">
+jQuery.noConflict();
+   function largeImg(trigger){
+
+		if(trigger=="mouseover")
+		 {
+			jQuery('#ex1').zoom();
+		}
+		else if(trigger=="grab")
+		{
+			jQuery('#ex1').zoom({ on:'grab' });
+				
+		}
+		else if(trigger=="click")
+		{
+			jQuery('#ex1').zoom({ on:'click' });
+		}
+			
+	}
+
+
+</script>
+<script type="text/javascript">
+
+function imageswitcher(imagename,trigger){	
+
+	//var newImg	=	imagename.src;
+	//alert(newImg);
+	var src1=jQuery('#image1').attr('src',imagename);
+	
+		if(trigger=="mouseover")
+  {
+			jQuery('#ex1').zoom();
+			}
+			else if(trigger=="grab")
+  {
+			jQuery('#ex1').zoom({ on:'grab' });
+			
+			}
+			else if(trigger=="click")
+  {
+			jQuery('#ex1').zoom({ on:'click' });
+			}
+			
+}
+</script>
+<?php $js=Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>
+<style type="text/css">
+		/* styles unrelated to zoom */
+		
+		/* optional icon style */
+		
+		.zoomIcon { 
+			width:33px; 
+			height:33px; 
+			position:absolute; 
+			top:10px;
+			right:0;
+			background:url("<?php echo $js.'VS/zoommaster/icon.png';?>");
+		}
+
+		/* these styles are for the demo, and are not required for the plugin */
+		
+
+		.zoom img {
+			display: block;
+		}
+
+		.zoom img::selection { background-color: transparent; }
+		#ex1 img:hover { cursor: url("<?php echo $js.'VS/zoommaster/grab.cur'?>"), default; }
+		#ex1 img:active { cursor: url("<?php echo $js.'VS/zoommaster/grabbed.cur'?>"), default; }
+	.product-view .product-img-box .zoom {display:inline-block; position:relative; z-index:9; height:280px; margin:0 auto 13px; padding:0 28px; background:url(../images/slider_bg.gif) 50% 50% no-repeat; cursor:pointer; width:240px;}
+.product-view .product-img-box .zoom.disabled { -moz-opacity:.3; -webkit-opacity:.3; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";/*IE8*/ opacity:.3; }
+.product-view .product-img-box .zoom #track { position:relative; height:18px; }
+.product-view .product-img-box .zoom #handle { position:absolute; left:0; top:-1px; width:9px; height:22px; background:url(../images/magnifier_handle.gif) 0 0 no-repeat;  }
+.product-view .product-img-box .zoom .btn-zoom-out { position:absolute; left:2px; top:0; }
+.product-view .product-img-box .zoom .btn-zoom-in { position:absolute; right:2px; top:0; }
+	</style>
