@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/VS_Zoommaster",
+    "name": "OpenMageModuleFostering\/VS_Zoommaster",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "A plugin to enlarge images on mouseover or mousedown.",
     "authors": [
-    {
-        "name": "virendra kumar sharma",
-        "email": "magentoking@gmail.com"
-    }
-],
+        {
+            "name": "virendra kumar sharma",
+            "email": "magentoking@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
