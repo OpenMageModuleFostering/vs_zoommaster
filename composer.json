@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/VS_Zoommaster",
+    "name": "openmage-module-fostering\/vs_zoommaster",
     "type": "magento-module",
-    "license": "OSL-v3.0",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "A plugin to enlarge images on mouseover or mousedown.",
     "authors": [
